@@ -3,3 +3,4 @@ I am working on a decrypt method where the key will be sent to an AWS server thr
 
 ✅ Ransomware works
 ✅ Decrypt works
+✅ Sends key over TOR
