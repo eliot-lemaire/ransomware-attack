@@ -1,3 +1,13 @@
+Disclaimer
+
+This script is intended solely for educational purposes and is meant to be used only in controlled environments such as virtual machines or test systems that you own or have explicit permission to use. Do not use this script on any system or network that you do not have explicit authorization to test.
+
+The author does not condone the use of this script for malicious purposes or unauthorized activities. Any use of this script to harm, disrupt, or gain unauthorized access to systems or networks is illegal and will be prosecuted to the fullest extent of the law.
+
+By using this script, you agree that you are responsible for your actions and understand the legal and ethical implications of running it. The script must never be used to target others without their consent, and it should only be executed in safe, controlled environments.
+
+Use responsibly.
+
 Tutorial
 Recommended Setup:
 
